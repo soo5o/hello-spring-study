@@ -2,15 +2,17 @@ package com.example.study.hello_spring.service;
 
 import com.example.study.hello_spring.domain.Member;
 import com.example.study.hello_spring.repository.MemberRepository;
-import com.example.study.hello_spring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class MemberService { //service를 개발하려면 repository가 있어야 함
     //service 는 비즈니스 용어를 사용하며 개발하는게 좋다.
     //private final MemberRepository memberRepository = new MemoryMemberRepository();
     private final MemberRepository memberRepository;
+    @Autowired
     public MemberService(MemberRepository memberRepository){
         this.memberRepository = memberRepository;
     }
